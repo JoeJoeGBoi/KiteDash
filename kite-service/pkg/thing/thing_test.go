@@ -237,11 +237,11 @@ func TestStringConversions(t *testing.T) {
 		{name: "int", value: NewInt(1), expected: "1"},
 		{name: "float", value: NewFloat(1.1), expected: "1.1"},
 		{name: "string", value: NewString("test"), expected: "test"},
-		{name: "bool", value: NewBool(true), expected: "true"},
-		{name: "bool", value: NewBool(false), expected: "false"},
-		{name: "message", value: NewDiscordMessage(discord.Message{ID: 123}), expected: "123"},
-		{name: "user", value: NewDiscordUser(discord.User{ID: 123}), expected: "123"},
-		{name: "member", value: NewDiscordMember(discord.Member{User: discord.User{ID: 123}}), expected: "123"},
+		{name: "bool_true", value: NewBool(true), expected: "true"},
+		{name: "bool_false", value: NewBool(false), expected: "false"},
+		{name: "message", value: NewDiscordMessage(discord.Message{Content: "hello"}), expected: "hello"},
+		{name: "user", value: NewDiscordUser(discord.User{ID: 123}), expected: "<@123>"},
+		{name: "member", value: NewDiscordMember(discord.Member{User: discord.User{ID: 123}}), expected: "<@123>"},
 	}
 
 	for _, test := range tests {
